@@ -4,9 +4,9 @@
 </h2>
 
 <h3>Responsive UI:</h3>
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap1.jpg?raw=true)<br />
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap2.jpg?raw=true)<br />
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap3.jpg?raw=true)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/public/images/lap1.jpg?raw=true)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/public/images/lap2.jpg?raw=true)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/public/images/lap3.jpg?raw=true)<br />
 ## 🔑Key Features
 
 - ✨ Simple and Minimal
