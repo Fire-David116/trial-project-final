@@ -14,8 +14,8 @@ export default function Dashboard() {
       </div>
       <div className="items-center bg-[#110A01] mb-[10px] h-[60%]">
         <div className="h-[18%] flex justify-between">
-          <a className="font-bold text-[32px] text-white mt-[24px] md:mt-[0px]">PnL Analysis</a>
-          <p className="bg-[#102407] font-bold text-[16px] text-treding-color h-[27px] w-[161px] mt-[34px] md:mt-[15px] flex items-center justify-center rounded-[100px]">
+          <a className="font-bold text-[28px] sm:text-[32px] lg:text-[32px]  md:text-[32px] text-white mt-[24px] md:mt-[-10px]">PnL Analysis</a>
+          <p className="bg-[#102407] font-bold text-[16px] text-treding-color h-[27px] w-[161px] mt-[34px] md:mt-[3px] flex items-center justify-center rounded-[100px]">
             This Month 5%
             <span className="inline-block bg-[#102407] w-6">
               <Image
@@ -28,7 +28,7 @@ export default function Dashboard() {
             </span>
           </p>
         </div>
-        <div className="h-[100%] mt-[32px] md:mt-[0px]"><ChartG /></div>
+        <div className="h-[100%] mt-[32px] md:mt-[10px]"><ChartG /></div>
       </div>
       <div className="bg-[#110A01]">
         <div className="w-[8%] bg-border-color"></div>

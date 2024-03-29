@@ -103,11 +103,11 @@ function EnhancedTableHead(props) {
                             key={headCell.id}
                             padding={headCell.disablePadding ? 'none' : 'normal'}
                             sortDirection={orderBy === headCell.id ? order : false}
-                            className={`border-none py-2 text-center ${
+                            className={`border-none py-2 px-0 text-center ${
                                 index === 0 ? 'rounded-tl-[18px]' : '' // Apply border radius to top-left of the first cell
                               } ${
                                 index === headCells.length - 1 ? 'rounded-tr-[18px]' : '' // Apply border radius to top-right of the last cell
-                              }`}
+                              } ${index===1 ? 'text-right md:text-center' : ''}`}
                         >
                             <TableSortLabel
                                 direction={orderBy === headCell.id ? order : 'asc'}
@@ -118,7 +118,7 @@ function EnhancedTableHead(props) {
                                 <span className="hover:text-[#c86c00] transition-colors duration-200">{headCell.label}</span>
                                 <span className="ml-1">
                                     {/* Render your sort icon here */}
-                                    <div style={{ width: "10px", height: "8px" }} className="mb-2">
+                                    <div className="w-[10px] h-[10px] mb-2">
                                         <Image
                                             src={sort}
                                             alt="Sort Icon"
@@ -312,7 +312,7 @@ export default function EnhancedTable() {
                                         </div>
                                         <span className="lg:inline hover:text-white transition-colors duration-300" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
                                     </TableCell>
-                                    <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-right lg:text-center sm:text-center md:text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
+                                    <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-right lg:text-center sm:text-right md:text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
                                     <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
                                     <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
                                 </TableRow>

@@ -186,7 +186,7 @@ const Activity = () => {
                 }
     return (
         <activity>
-            {!next ? <div className="w-auto m-[8px] mb-[20px]">
+            {next ? <div className="w-auto m-[8px] mb-[20px]">
                 <div
                     className={` w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 ${isHovered ? 'bg-[#190f01]' : ''}`}
                     onMouseEnter={handleMouseEnter}

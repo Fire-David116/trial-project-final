@@ -36,6 +36,21 @@ module.exports = {
             transform: 'translateX(0px)',
           },
         },
+        slideanimation: {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+  
+          '70%': {
+            transform: 'translateX(calc(-65px - 100%))',
+          },
+          '98%': {
+            transform: 'translateX(calc(-65px - 100%))',
+          },
+          '100%': {
+            transform: 'translateX(0px)',
+          },
+        },
       },
       
       animation: {

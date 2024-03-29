@@ -8,7 +8,7 @@ import NavLogo from './logo.svg'
 import buttonlogo from './button-logo.svg';
 const Nav = () => {
     let name;
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
     const [seo, setSeo] = useState("Test")
     const [flag, setFlag] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -60,35 +60,35 @@ const Nav = () => {
                         <span className="hidden sm:inline ml-2">degentrades.lens</span>
                     </button>
                     <button data-collapse-toggle="mobile-menu-2" type="button" onClick={() => setOpen(!open)}
-                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden"
+                        class="inline-flex items-center mr-[10px] text-sm text-gray-500 rounded-lg lg:hidden"
                         aria-controls="mobile-menu-2" aria-expanded="true">
                         <span class="sr-only">Open main menu</span>
-                        <FiMoreVertical className="w-6 h-6" />
+                        <FiMoreVertical className="mr-[-10px] w-6 h-6 text-white" />
                     </button>
                 </div>
                 <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1 font-[HankenGroteskRegular]" id="mobile-menu-2">
-                    {open ? <ul class={`${!isMobile ? "block": "hidden" } flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0`}>
+                    {open ? <ul class={`${!isMobile ? "block": "hidden" } flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0 rounded`}>
                         <li className="lg:px-5 py-2 text-right">
-                            <b className='rounded hover:border-b-4 text-white hover:text-border-color border-border-color ' style={{ fontSize: "0.9rem" }}>
+                            <b className='rounded hover:border-b-4 text-white hover:text-border-color border-border-color px-2 py-1' style={{ fontSize: "0.9rem" }}>
                                 <Link href="/">Swap</Link>
                             </b>
 
                         </li>
                         <li className="lg:px-5 py-2 text-right">
-                            <b className='rounded hover:border-b-4 text-white  hover:text-border-color border-border-color' style={{ fontSize: "0.9rem" }}>
+                            <b className='rounded hover:border-b-4 text-white  hover:text-border-color border-border-color px-2 py-1' style={{ fontSize: "0.9rem" }}>
                                 <Link href="/">Bridge</Link>
                             </b>
 
 
                         </li>
                         <li className="lg:px-5 py-2 text-right">
-                            <b className='rounded border-b-4 text-border-color text-border-color hover:border-b-4  hover:text-border-color border-border-color' style={{ fontSize: "0.9rem" }}>
+                            <b className='rounded border-b-4 text-border-color text-border-color hover:border-b-4  hover:text-border-color border-border-color px-2 py-1' style={{ fontSize: "0.9rem" }}>
                                 <Link href="/">Dashboard</Link>
                             </b>
 
                         </li>
                         <li className="lg:px-5 py-2 text-right">
-                            <b className='rounded hover:border-b-4  text-white hover:text-border-color border-border-color' style={{ fontSize: "0.9rem" }}>
+                            <b className='rounded hover:border-b-4  text-white hover:text-border-color border-border-color px-2 py-1' style={{ fontSize: "0.9rem" }}>
                                 <Link href="/">Analytics</Link>
                             </b>
                         </li>
@@ -97,7 +97,7 @@ const Nav = () => {
                     </ul>:
                     <ul class="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
                     <li className="lg:px-5 py-2 text-right">
-                        <b className='rounded hover:border-b-4 text-white hover:text-border-color border-border-color ' style={{ fontSize: "0.9rem" }}>
+                        <b className='rounded hover:border-b-4 hover:border-w-[50px] text-white hover:text-border-color border-border-color ' style={{ fontSize: "0.9rem" }}>
                             <Link href="/">Swap</Link>
                         </b>
 
