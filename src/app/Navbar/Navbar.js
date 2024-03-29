@@ -15,7 +15,7 @@ const Nav = () => {
         <>
             <header className=" py-2 bg-custom-color">
                 <div className="flex justify-between items-center xl:mx-auto px-[8%] flex-wrap">
-                <Link href="/">
+                    <Link href="/">
                         <Image
                             src={NavLogo}
                             alt='logo'
@@ -26,7 +26,7 @@ const Nav = () => {
                     </Link>
                     <FiMoreVertical className="lg:hidden block h-6 w-6 cursor-pointer text-white" onClick={() => setOpen(!open)} />
                     <nav className={`${open ? "block " : "hidden"} lg:flex lg:items-center lg:w-auto w-full `}>
-                        <ul className="text-base text-white lg:flex lg:justify-between   font-[HankenGroteskRegular]">
+                        <ul className="text-base text-white lg:flex lg:justify-between font-[HankenGroteskRegular]">
                             <li className="lg:px-5 py-2 text-right">
                                 <b className='rounded hover:border-b-4  hover:text-border-color border-border-color ' style={{ fontSize: "0.9rem" }}>
                                     <Link href="/">Swap</Link>

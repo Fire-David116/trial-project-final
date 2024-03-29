@@ -28,7 +28,7 @@ export default function Dashboard() {
             </span>
           </p>
         </div>
-        <div className="h-[100%] mb-[20px]"><ChartG /></div>
+        <div className="h-[100%] mb-[50px]"><ChartG /></div>
       </div>
       <div className="bg-[#110A01] sm:mt-[20px] md:mt-[-30px]">
         <div className="w-[8%] bg-border-color"></div>
