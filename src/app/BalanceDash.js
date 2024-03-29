@@ -21,7 +21,7 @@ const Balance = () => {
         <div>
             <div className="bg-[#110A01] flex">
                 <div className="h-full w-[1%] bg-[#110A01]">' '</div>
-                <div className="flex h-full w-[92%] bg-custom-color rounded-[32px]">
+                <div className="flex h-full w-[99%] md:w-[92%] bg-custom-color rounded-[32px]">
                     <div className="w-4/6 pr-4">
                         <a className="block font-bold text-[16px] md:text-[24px] text-white font-[HankenGroteskRegular] pt-4 md:pt-2 md:pt-6 pl-6 ">
                             My Balance
