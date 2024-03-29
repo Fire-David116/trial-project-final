@@ -12,10 +12,10 @@ export default function Dashboard() {
       <div className="bg-[#110A01]">
         <div><Balance /></div>
       </div>
-      <div className="items-center bg-[#110A01] md:m-[5px] h-[60%]">
+      <div className="items-center bg-[#110A01] mb-[10px] h-[60%]">
         <div className="h-[18%] flex justify-between">
-          <a className="font-bold text-[24px] md:text-[32px] text-white">PnL Analysis</a>
-          <p className="bg-[#102407] font-bold text-[16px] text-treding-color h-[27px] w-[161px] mt-[6px] flex items-center justify-center rounded-[100px] md:mr-[36px]">
+          <a className="font-bold text-[24px] md:text-[32px] text-white mt-[-10px]">PnL Analysis</a>
+          <p className="bg-[#102407] font-bold text-[16px] text-treding-color h-[27px] w-[161px] mt-[-2px] flex items-center justify-center rounded-[100px] md:mr-[36px]">
             This Month 5%
             <span className="inline-block bg-[#102407] w-6">
               <Image
@@ -28,7 +28,7 @@ export default function Dashboard() {
             </span>
           </p>
         </div>
-        <div className="h-[100%]"><ChartG /></div>
+        <div className="h-[100%] mb-[20px]"><ChartG /></div>
       </div>
       <div className="bg-[#110A01] sm:mt-[20px] md:mt-[-30px]">
         <div className="w-[8%] bg-border-color"></div>
@@ -38,10 +38,10 @@ export default function Dashboard() {
           </a>
           <SortingTable /></div>
       </div>
-      <div className="bg-[#110A01]">
+      <div className="bg-[#110A01] md:mt-[-60px]">
         <div className="w-[8%]"></div>
-        <div className="w-[92%] mt-[-60px] ml-[30px]">
-          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-30px] md:ml-[0px] mt-[60px] md:mt-[0px]">
+        <div className="w-[92%] ml-[30px]">
+          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-30px] md:ml-[0px] md:mt-[0px]">
             Recent Activity
           </a>
           <Activity />

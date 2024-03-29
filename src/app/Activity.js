@@ -140,7 +140,7 @@ const Activity = () => {
                 >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
-                            <div className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3">
+                            <div className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2">
                                 <Image
                                     src={coinact}
                                     alt="Arrow"
@@ -178,7 +178,7 @@ const Activity = () => {
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
-                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
                             >
                                 <Image
                                     src={mcoinact}
@@ -214,7 +214,7 @@ const Activity = () => {
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
-                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
                             >
                                 <Image
                                     src={bcoinact}
@@ -249,7 +249,7 @@ const Activity = () => {
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
-                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
                             >
                                 <Image
                                     src={ucoinact}
@@ -284,7 +284,7 @@ const Activity = () => {
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
                             <div
-                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-3"
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
                             >
                                 <Image
                                     src={ecoinact}
@@ -312,7 +312,7 @@ const Activity = () => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col items-center justify-center md:mt-[20px]">
+                    <div className="flex flex-col items-center justify-center md:mt-[0px]">
                         <TablePagination
                             className="bg-[#110A01] text-[#C86C00]"
                             rowsPerPageOptions={[]} // Hide rows per page options

@@ -5,12 +5,12 @@ import Footer from "./Footer";
 import Nav from "./Navbar/Navbar";
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen bg-[#110A01]">
+    <div className="flex flex-col h-full bg-[#110A01]">
       <Nav />
       <div className="flex-1 bg-[#110A01]">
         <Dashboard />
       </div>
-      <div className="mt-[30px] md:mt-[0px]">
+      <div>
         <Footer />
       </div>
     </div>
