@@ -30,7 +30,7 @@ const Nav = () => {
     }, []);
     return (
         <nav class={`bg-custom-color border-gray-200 py-2.5 dark:bg-gray-900 z-50 rounded-lg ${isMobile ? "fixed top-0 left-0 right-0" : " "}`}>
-            <div class="flex flex-wrap items-center justify-between px-4 mx-auto">
+            <div class="flex flex-wrap items-center justify-between w-[96%]">
                 <p href="#" class="flex items-left">
                     <Link href="/">
                         <Image
