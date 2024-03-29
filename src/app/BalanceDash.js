@@ -20,10 +20,9 @@ const Balance = () => {
     return (
         <div>
             <div className="bg-[#110A01] flex">
-                <div className="h-full w-[1%] bg-[#110A01]">' '</div>
-                <div className="flex h-full w-[100%] md:w-[96%] bg-custom-color rounded-[32px]">
+                <div className="flex h-[100%] py-5 w-[100%] md:w-[96%] bg-custom-color rounded-[32px]">
                     <div className="w-4/6">
-                        <a className="block font-bold text-[16px] md:text-[24px] text-white font-[HankenGroteskRegular] pt-4 md:pt-2 md:pt-6 pl-6 ">
+                        <a className="block font-bold text-[16px] md:text-[24px] text-white font-[HankenGroteskRegular] pl-6 ">
                             My Balance
                         </a>
                         <a className="block font-bold text-[40px] sm:text-[48px] md:text-[60px] text-white font-[HankenGroteskRegular] pt-2 md:pt-6 pl-6">
@@ -61,7 +60,7 @@ const Balance = () => {
                         <Image
                             src={bigCoinImg}
                             alt="Arrow"
-                            className="md:mt-6 w-[200px]"
+                            className="md:mt-2 w-[220px]"
                             priority
                         />
                     </div>
@@ -70,7 +69,7 @@ const Balance = () => {
             <a className="inline-block md:text-2xl text-white mt-[32px] mb-[16px]">
                 Your top movers
             </a>
-            <div className="h-[40%] flex overflow-x-hidden mr-[24px]">
+            <div className="h-[40%] flex overflow-x-hidden md:mr-[24px]">
                 <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex animate-slide">
                     <div className="w-1/3 flex-none">
                         <div

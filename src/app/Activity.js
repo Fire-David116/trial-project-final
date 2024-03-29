@@ -68,7 +68,7 @@ const Activity = () => {
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+    const [next, setPageNext] = useState(true);
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -139,37 +139,54 @@ const Activity = () => {
     }) => {
         const handleBackButtonClick = (event) => {
             onPageChange(event, page - 1);
+            setPageNext(!next);
         };
     
         const handleNextButtonClick = (event) => {
             onPageChange(event, page + 1);
+            setPageNext(!next);
         };
     
         return (
             <div style={{ flexShrink: 0 }} className="flex">
+                {page ?
                 <IconButton
                     onClick={handleBackButtonClick}
                     disabled={page === 0}
                     aria-label="previous page"
-                    style={{ color: '#C86C00' }} 
-                >
-                    <KeyboardArrowLeftIcon />
-                </IconButton>
-                <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}</div>
+                    style={{ color: '#C86C00' }}
+                >                <KeyboardArrowLeftIcon /></IconButton>:
                 <IconButton
+                    onClick={handleBackButtonClick}
+                    disabled={page === 0}
+                    aria-label="previous page"
+                    style={{ color: '#110A01' }}
+                >                <KeyboardArrowLeftIcon /></IconButton>}
+    
+    
+                <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(8 / 5)}`}</div>
+                {page ? <IconButton
                     onClick={handleNextButtonClick}
                     disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                     aria-label="next page"
-                    style={{ color: '#C86C00' }} 
+                    style={{ color: '#110A01' }}
                 >
                     <KeyboardArrowRightIcon />
-                </IconButton>
+                </IconButton>:
+                <IconButton
+                onClick={handleNextButtonClick}
+                disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+                aria-label="next page"
+                style={{ color: '#C86C00' }}
+            >
+                <KeyboardArrowRightIcon />
+            </IconButton>}
             </div>
         );
-    };
+                }
     return (
         <activity>
-            <div className="w-auto mb-[20px]">
+            {!next ? <div className="w-auto m-[8px] mb-[20px]">
                 <div
                     className={` w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 ${isHovered ? 'bg-[#190f01]' : ''}`}
                     onMouseEnter={handleMouseEnter}
@@ -182,18 +199,18 @@ const Activity = () => {
                                     src={coinact}
                                     alt="Arrow"
                                     className="w-full h-auto"
-                                    sizes="20vw"
+                                    sizes="30vw"
                                     priority
                                 />
                             </div>
                         </div>
 
                         <div className="w-7/8 flex flex-col w-[100%]">
-                            <div className={`h-1/2 flex font-bold items-center ml-2 text-lg justify-between ${isHovered ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>
+                            <div className={`h-1/2 flex font-bold items-center ml-3 text-lg justify-between ${isHovered ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>
                                 <span>Swapped</span>
                                 <span className="text-[12px] font-semibold  text-white">03/19/23</span>
                             </div>
-                            <div className="text-white h-1/2 flex items-center ml-2 text-[12px] md:text-[16px] justify-between">
+                            <div className="text-white h-1/2 flex items-center ml-3 text-[14px] md:text-[16px] justify-between">
                                 <span>20 LINK For 0.1074ETH</span>
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered ? 'animate-bounce' : ''}>
                                     <Image
@@ -208,7 +225,7 @@ const Activity = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]"
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%] mt-[20px]"
                                     onMouseEnter={handleMouseEnterA}
                                     onMouseLeave={handleMouseLeaveA}
                                     >
@@ -229,7 +246,7 @@ const Activity = () => {
 
                         <div className="w-7/8 flex flex-col w-[100%]">
                             <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered1 ? 'text-[#c86c00] transition-colors duration-100' : 'text-white'}`}>Received<span className="text-[12px] font-semibold text-white">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2  justify-between">NFT From mutant.ens
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">NFT From mutant.ens
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered1 ? 'animate-bounce' : ''}>
                                     <Image
                                         src={arrowoutward}
@@ -244,7 +261,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-[108%] h-[70px] rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%]"
+                <div className="w-[108%] h-[70px] rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%] mt-[20px]"
                                                     onMouseEnter={handleMouseEnterB}
                                                     onMouseLeave={handleMouseLeaveB}
                                                     >
@@ -265,7 +282,7 @@ const Activity = () => {
 
                         <div className="w-7/8 flex flex-col w-[100%]">
                             <div className={`h-1/2 flex font-bold items-center  text-white ml-2 text-lg justify-between ${isHovered2 ? 'text-[#C86C00] transition-colors duration-200' : ''}`}>Transferred<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2  justify-between">WBTC To 0x6584...BD68
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">WBTC To 0x6584...BD68
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered2 ? 'animate-bounce' : ''}>
                                     <Image
                                         src={arrowoutward}
@@ -280,7 +297,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%] "
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]  mt-[20px]"
                                                                     onMouseEnter={handleMouseEnterC}
                                                                     onMouseLeave={handleMouseLeaveC}>
                     <div className="flex h-[70px]">
@@ -300,7 +317,7 @@ const Activity = () => {
 
                         <div className="w-7/8 flex flex-col w-[100%]">
                             <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered3 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Bridged<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2  justify-between">ethereum to Polygon
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">ethereum to Polygon
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered3 ? 'animate-bounce' : ''}>
                                     <Image
                                         src={arrowoutward}
@@ -315,7 +332,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]"
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%] mt-[30px]"
                                                                     onMouseEnter={handleMouseEnterD}
                                                                     onMouseLeave={handleMouseLeaveD}>
                     <div className="flex h-[70px]">
@@ -335,7 +352,7 @@ const Activity = () => {
 
                         <div className="w-7/8 flex flex-col w-[100%]">
                             <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered4 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Swapped<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
-                            <div className="h-1/2 flex items-center text-white ml-2  justify-between">1ETH For 3,500 USDC
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">1ETH For 3,500 USDC
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered4 ? 'animate-bounce' : ''}>
                                     <Image
                                         src={arrowoutward}
@@ -349,7 +366,8 @@ const Activity = () => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col items-center justify-center md:mt-[0px]">
+                    
+                <div className="flex flex-col items-center justify-center mt-[10px] md:mt-[0px]">
                     <TablePagination
                         className="bg-[#110A01] text-[#C86C00]"
                         rowsPerPageOptions={[]} // Hide rows per page options
@@ -357,14 +375,138 @@ const Activity = () => {
                         count={rows.length}
                         page={page}
                         onPageChange={handleChangePage}
-                        rowsPerPage={rowsPerPage} // Current rows per page
+                        rowsPerPage={2} // Current rows per page
                         onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
                         ActionsComponent={TablePaginationActions} // Use the custom actions component
                         labelDisplayedRows={() => ''}
                     />
                     </div>
                 </div>
-            </div>
+            </div> : 
+            
+            <div className="w-auto m-[8px] mb-[20px]">
+                
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%] mt-[20px]"
+                                    onMouseEnter={handleMouseEnterA}
+                                    onMouseLeave={handleMouseLeaveA}
+                                    >
+                    <div className="flex h-[70px]">
+                        <div className="w-1/8 flex-none">
+                            <div
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
+                            >
+                                <Image
+                                    src={ecoinact}
+                                    alt="Arrow"
+                                    className="w-full h-auto"
+                                    sizes="20vw"
+                                    priority
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-7/8 flex flex-col w-[100%]">
+                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered1 ? 'text-[#c86c00] transition-colors duration-100' : 'text-white'}`}>Received<span className="text-[12px] font-semibold text-white">03/19/23</span></div>
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">NFT From mutant.ens
+                                <div style={{ width: "12px", height: "12px" }} className={isHovered1 ? 'animate-bounce' : ''}>
+                                    <Image
+                                        src={arrowoutward}
+                                        alt="Arrow"
+                                        className="w-[300%] h-auto"
+                                        sizes="20vw"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]  mt-[20px]"
+                                                                    onMouseEnter={handleMouseEnterC}
+                                                                    onMouseLeave={handleMouseLeaveC}>
+                    <div className="flex h-[70px]">
+                        <div className="w-1/8 flex-none">
+                            <div
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
+                            >
+                                <Image
+                                    src={ucoinact}
+                                    alt="Arrow"
+                                    className="w-full h-auto"
+                                    sizes="20vw"
+                                    priority
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-7/8 flex flex-col w-[100%]">
+                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered3 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Bridged<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">ethereum to Polygon
+                                <div style={{ width: "12px", height: "12px" }} className={isHovered3 ? 'animate-bounce' : ''}>
+                                    <Image
+                                        src={arrowoutward}
+                                        alt="Arrow"
+                                        className="w-full h-auto"
+                                        sizes="20vw"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-[108%] h-[70px] rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%] mt-[20px]"
+                                                    onMouseEnter={handleMouseEnterB}
+                                                    onMouseLeave={handleMouseLeaveB}
+                                                    >
+                    <div className="flex h-[70px]">
+                        <div className="w-1/8 flex-none">
+                            <div
+                                className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2"
+                            >
+                                <Image
+                                    src={bcoinact}
+                                    alt="Arrow"
+                                    className="w-full h-auto"
+                                    sizes="20vw"
+                                    priority
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-7/8 flex flex-col w-[100%]">
+                            <div className={`h-1/2 flex font-bold items-center  text-white ml-2 text-lg justify-between ${isHovered2 ? 'text-[#C86C00] transition-colors duration-200' : ''}`}>Transferred<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
+                            <div className="h-1/2 flex items-center text-white ml-2 text-[14px] md:text-[16px]  justify-between">WBTC To 0x6584...BD68
+                                <div style={{ width: "12px", height: "12px" }} className={isHovered2 ? 'animate-bounce' : ''}>
+                                    <Image
+                                        src={arrowoutward}
+                                        alt="Arrow"
+                                        className="w-full h-auto"
+                                        sizes="20vw"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div className="flex flex-col items-center justify-center mt-[10px] md:mt-[0px]">
+                    <TablePagination
+                        className="bg-[#110A01] text-[#C86C00]"
+                        rowsPerPageOptions={[]} // Hide rows per page options
+                        component="div"
+                        count={8}
+                        page={1}
+                        onPageChange={handleChangePage}
+                        rowsPerPage={5} // Current rows per page
+                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                        ActionsComponent={TablePaginationActions} // Use the custom actions component
+                        labelDisplayedRows={() => ''}
+                    />
+                    </div>
+                </div>
+}
         </activity>
     );
 };

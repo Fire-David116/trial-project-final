@@ -37,6 +37,7 @@ module.exports = {
           },
         },
       },
+      
       animation: {
         slide: 'slide 8s ease infinite',
       },

@@ -8,7 +8,7 @@ import NavLogo from './logo.svg'
 import buttonlogo from './button-logo.svg';
 const Nav = () => {
     let name;
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const [seo, setSeo] = useState("Test")
     const [flag, setFlag] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -29,7 +29,10 @@ const Nav = () => {
         };
     }, []);
     return (
-        <nav class={`bg-custom-color border-gray-200 py-2.5 dark:bg-gray-900 z-50 rounded-lg ${isMobile ? "fixed top-0 left-0 right-0" : " "}`}>
+        <nav class={`bg-custom-color border-gray-200 py-2.5 dark:bg-gray-900 z-50  shadow-[50px] ${isMobile ? "fixed top-0 left-0 right-0" : " "}`}>
+            {isMobile && !open && (
+        <div class="fixed inset-0 bg-white z-40 mt-[230px] opacity-[50%]" aria-hidden="true"></div>
+    )}
             <div class="flex flex-wrap items-center justify-between w-[96%]">
                 <p href="#" class="flex items-left">
                     <Link href="/">
@@ -38,7 +41,7 @@ const Nav = () => {
                             alt='logo'
                             width={152}
                             height={42}
-                            className='cursor-pointer ml-[3px] md:ml-[80px]'
+                            className='cursor-pointer ml-[8px] md:ml-[80px]'
                         />
                     </Link>
                 </p>

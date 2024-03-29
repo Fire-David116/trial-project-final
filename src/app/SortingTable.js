@@ -97,13 +97,17 @@ function EnhancedTableHead(props) {
     return (
         <TableHead>
             <TableRow className="bg-[#190F01] h-8">
-                {headCells.map((headCell) => (
+                {headCells.map((headCell, index) => (
                     (isMobile && (headCell.id === 'fat' || headCell.id === 'carbs')) ? null : (
                         <TableCell
                             key={headCell.id}
                             padding={headCell.disablePadding ? 'none' : 'normal'}
                             sortDirection={orderBy === headCell.id ? order : false}
-                            className="border-none py-2 text-center" // Add the hover class here
+                            className={`border-none py-2 text-center ${
+                                index === 0 ? 'rounded-tl-[18px]' : '' // Apply border radius to top-left of the first cell
+                              } ${
+                                index === headCells.length - 1 ? 'rounded-tr-[18px]' : '' // Apply border radius to top-right of the last cell
+                              }`}
                         >
                             <TableSortLabel
                                 direction={orderBy === headCell.id ? order : 'asc'}
@@ -112,13 +116,13 @@ function EnhancedTableHead(props) {
                                 hideSortIcon={true}
                             >
                                 <span className="hover:text-[#c86c00] transition-colors duration-200">{headCell.label}</span>
-                                <span className="ml-1"> {/* Add appropriate margin for spacing */}
+                                <span className="ml-1">
                                     {/* Render your sort icon here */}
                                     <div style={{ width: "10px", height: "8px" }} className="mb-2">
                                         <Image
                                             src={sort}
                                             alt="Sort Icon"
-                                            className="w-4 h-4 hover:"
+                                            className="w-4 h-4"
                                             sizes="20vw"
                                             priority
                                         />
@@ -157,23 +161,38 @@ const TablePaginationActions = ({
 
     return (
         <div style={{ flexShrink: 0 }} className="flex">
+            {page ?
             <IconButton
                 onClick={handleBackButtonClick}
                 disabled={page === 0}
                 aria-label="previous page"
-                style={{ color: '#C86C00' }} 
-            >
-                <KeyboardArrowLeftIcon />
-            </IconButton>
-            <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}</div>
+                style={{ color: '#C86C00' }}
+            >                <KeyboardArrowLeftIcon /></IconButton>:
             <IconButton
+                onClick={handleBackButtonClick}
+                disabled={page === 0}
+                aria-label="previous page"
+                style={{ color: '#110A01' }}
+            >                <KeyboardArrowLeftIcon /></IconButton>}
+
+
+            <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}</div>
+            {page ? <IconButton
                 onClick={handleNextButtonClick}
                 disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                 aria-label="next page"
-                style={{ color: '#C86C00' }} 
+                style={{ color: '#110A01' }}
             >
                 <KeyboardArrowRightIcon />
-            </IconButton>
+            </IconButton>:
+            <IconButton
+            onClick={handleNextButtonClick}
+            disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+            aria-label="next page"
+            style={{ color: '#C86C00' }}
+        >
+            <KeyboardArrowRightIcon />
+        </IconButton>}
         </div>
     );
 };
@@ -241,82 +260,79 @@ export default function EnhancedTable() {
         setHoveredRow(null);
     };
     return (
-        <Box sx={{ width: '106%' }}>
-            <Paper sx={{ width: '100%', mb: 2 }}>
-                <TableContainer className="flex flex-col items-center justify-center bg-[#110A01]">
-                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
-                        <EnhancedTableHead
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
-                            rowCount={rows.length}
-                        />
-                        <TableBody className="bg-[#110A01]">
-                            {visibleRows.map((row, index) => {
-                                const isItemSelected = isSelected(row.id);
-                                const labelId = `enhanced-table-checkbox-${index}`;
-                                const rowHovered = hoveredRow === index;
-
-                                return (
-                                    <TableRow
-                                        hover
-                                        role="checkbox"
-                                        aria-checked={isItemSelected}
-                                        tabIndex={-1}
-                                        key={row.id}
-                                        onMouseEnter={() => handleRowHover(index)}
-                                        onMouseLeave={handleRowLeave}
-                                        style={{
-                                            backgroundColor: rowHovered ? '#c86c00' : 'inherit',
-                                            height: '15px',
-                                            transition: 'background-color 0.1s ease-in-out', // Adding transition for background-color
-                                        }}
-                                        className="border-none hover:bg-[#c86c00] transition-colors duration-200"
-                                    >
-
-                                        <TableCell
-                                            component="th"
-                                            id={labelId}
-                                            scope="row"
-                                            style={{ color: 'white', padding: '3px', fontSize: '15px', height: '30px' }} // Adjust padding and font size
-                                            className="bg-[#110A01] border-none flex items-center hover:text-white transition-colors duration-300" // Apply Tailwind class to remove borders and align content vertically
-                                        >
-                                            <div
-                                                style={{ width: "30px", height: "30px" }}
-                                                className="w-16 sm:w-16 md:w-16 overflow-hidden  mr-2 xs:mr-4 inline-block align-middle ml-2"
-                                            >
-                                                <img
-                                                    src={row.avatar}
-                                                    alt={row.name}
-                                                    className="w-full h-full rounded-full"
-                                                />
-                                            </div>
-                                            <span className="lg:inline hover:text-white transition-colors duration-300" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
-                                        </TableCell>
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-right lg:text-center sm:text-center md:text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
-                                    </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                    <TablePagination
-                        className="bg-[#110A01] text-[#C86C00]"
-                        rowsPerPageOptions={[]} // Hide rows per page options
-                        component="div"
-                        count={rows.length}
-                        page={page}
-                        onPageChange={handleChangePage}
-                        rowsPerPage={rowsPerPage} // Current rows per page
-                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
-                        ActionsComponent={TablePaginationActions} // Use the custom actions component
-                        labelDisplayedRows={() => ''}
+        <Box className="w-[109%] md:w-[106%]">
+            <TableContainer className="flex flex-col items-center justify-center bg-[#110A01]">
+                <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
+                    <EnhancedTableHead
+                        numSelected={selected.length}
+                        order={order}
+                        orderBy={orderBy}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={rows.length}
                     />
-                </TableContainer>
-            </Paper>
+                    <TableBody className="bg-[#110A01]">
+                        {visibleRows.map((row, index) => {
+                            const isItemSelected = isSelected(row.id);
+                            const labelId = `enhanced-table-checkbox-${index}`;
+                            const rowHovered = hoveredRow === index;
+
+                            return (
+                                <TableRow
+                                    hover
+                                    role="checkbox"
+                                    aria-checked={isItemSelected}
+                                    tabIndex={-1}
+                                    key={row.id}
+                                    onMouseEnter={() => handleRowHover(index)}
+                                    onMouseLeave={handleRowLeave}
+                                    style={{
+                                        height: '40px',
+                                        transition: 'background-color 0.1s ease-in-out', // Adding transition for background-color
+                                    }}
+                                    className="border-none hover:bg-[#c86c00] transition-colors duration-200"
+                                >
+
+                                    <TableCell
+                                        component="th"
+                                        id={labelId}
+                                        scope="row"
+                                        style={{ color: 'white', padding: '3px', fontSize: '15px', height: '30px' }} // Adjust padding and font size
+                                        className="bg-[#110A01] border-none flex items-center hover:text-white transition-colors duration-300" // Apply Tailwind class to remove borders and align content vertically
+                                    >
+                                        <div
+                                            style={{ width: "30px", height: "30px" }}
+                                            className=" border-none w-16 sm:w-16 md:w-16 overflow-hidden  mr-2 xs:mr-4 inline-block align-middle ml-2"
+                                        >
+                                            <img
+                                                src={row.avatar}
+                                                alt={row.name}
+                                                className="w-full h-full rounded-full"
+                                            />
+                                        </div>
+                                        <span className="lg:inline hover:text-white transition-colors duration-300" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
+                                    </TableCell>
+                                    <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-right lg:text-center sm:text-center md:text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
+                                    <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
+                                    <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
+                                </TableRow>
+                            );
+                        })}
+                    </TableBody>
+                </Table>
+                <TablePagination
+                    className="bg-[#110A01] text-[#C86C00]"
+                    rowsPerPageOptions={[]} // Hide rows per page options
+                    component="div"
+                    count={rows.length}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    rowsPerPage={rowsPerPage} // Current rows per page
+                    onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                    ActionsComponent={TablePaginationActions} // Use the custom actions component
+                    labelDisplayedRows={() => ''}
+                />
+            </TableContainer>
         </Box>
     );
 }
