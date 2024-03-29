@@ -38,10 +38,10 @@ export default function Dashboard() {
           </a>
           <SortingTable /></div>
       </div>
-      <div className="bg-[#110A01] md:mt-[-60px]">
+      <div className="bg-[#110A01] md:mt-[-60px] ml-[-20px] md:ml-[-20px]">
         <div className="w-[8%]"></div>
         <div className="w-[92%] ml-[30px]">
-          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-30px] md:ml-[0px] md:mt-[0px]">
+          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-10px] md:ml-[0px] md:mt-[0px]">
             Recent Activity
           </a>
           <Activity />

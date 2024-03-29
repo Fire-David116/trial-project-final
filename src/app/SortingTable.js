@@ -261,8 +261,8 @@ export default function EnhancedTable() {
                                             <span className="lg:inline hover:text-white transition-colors duration-300" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
                                         </TableCell>
                                         <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden md:show lg:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden sm:show lg:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
                                     </TableRow>
                                 );
                             })}
