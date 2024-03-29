@@ -28,17 +28,17 @@ export default function Dashboard() {
             </span>
           </p>
         </div>
-        <div className="h-[100%] mb-[50px]"><ChartG /></div>
+        <div className="h-[100%]"><ChartG /></div>
       </div>
-      <div className="bg-[#110A01] sm:mt-[20px] md:mt-[-30px]">
+      <div className="bg-[#110A01] sm:mt-[0px] ml-[30px] md:ml-[0px] mb-[0px] sm:mb-[0px] lg:mb-[30px]">
         <div className="w-[8%] bg-border-color"></div>
-        <div className="w-[92%] ml-[30px] md:mt-[-30px]">
-          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-10px] sm:ml-[-10px] md:ml-[0px]">
+        <div className="w-[92%] mt-[-30px] md:mt-[0px] mb-[20px] md:mb-[0px]">
+          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-30px] sm:ml-[-30px] md:ml-[0px]">
             Your holdings
           </a>
           <SortingTable /></div>
       </div>
-      <div className="bg-[#110A01] md:mt-[-60px] ml-[-20px] md:ml-[-20px]">
+      <div className="bg-[#110A01] lg:mt-[10px] sm:mt-[10px] ml-[-20px] md:ml-[-20px]">
         <div className="w-[8%]"></div>
         <div className="w-[92%] ml-[30px]">
           <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-10px] md:ml-[0px] md:mt-[0px]">

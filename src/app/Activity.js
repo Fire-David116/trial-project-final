@@ -132,7 +132,7 @@ const Activity = () => {
     };
     return (
         <activity>
-            <div className="w-auto">
+            <div className="w-auto mb-[20px]">
                 <div
                     className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${isHovered ? 'bg-[#190f01]' : ''}`}
                     onMouseEnter={handleMouseEnter}
