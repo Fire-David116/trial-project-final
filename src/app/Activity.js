@@ -96,7 +96,7 @@ const Activity = () => {
             ),
         [order, orderBy, page, rowsPerPage],
     );
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
     const [isHovered1, setIsHoveredA] = useState(false);
     const [isHovered2, setIsHoveredB] = useState(false);
     const [isHovered3, setIsHoveredC] = useState(false);
@@ -191,7 +191,7 @@ const Activity = () => {
                         <div className="w-7/8 flex flex-col w-[100%]">
                             <div className={`h-1/2 flex font-bold items-center ml-2 text-lg justify-between ${isHovered ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>
                                 <span>Swapped</span>
-                                <span className="text-[12px] text-base font-semibold  text-white">03/19/23</span>
+                                <span className="text-[12px] font-semibold  text-white">03/19/23</span>
                             </div>
                             <div className="text-white h-1/2 flex items-center ml-2 text-[12px] md:text-[16px] justify-between">
                                 <span>20 LINK For 0.1074ETH</span>
@@ -228,7 +228,7 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col w-[100%]">
-                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered1 ? 'text-[#c86c00] transition-colors duration-100' : 'text-white'}`}>Received<span className="text-[12px] font-semibold text-base  text-white">03/19/23</span></div>
+                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered1 ? 'text-[#c86c00] transition-colors duration-100' : 'text-white'}`}>Received<span className="text-[12px] font-semibold text-white">03/19/23</span></div>
                             <div className="h-1/2 flex items-center text-white ml-2  justify-between">NFT From mutant.ens
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered1 ? 'animate-bounce' : ''}>
                                     <Image
@@ -244,7 +244,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%]"
+                <div className="w-[108%] h-[70px] rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%]"
                                                     onMouseEnter={handleMouseEnterB}
                                                     onMouseLeave={handleMouseLeaveB}
                                                     >
@@ -264,7 +264,7 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col w-[100%]">
-                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered2 ? 'text-[#c86c00] transition-colors duration-300' : ''}`}>Transferred<span className="text-[12px] font-semibold text-base  text-white">03/19/23</span></div>
+                            <div className={`h-1/2 flex font-bold items-center  text-white ml-2 text-lg justify-between ${isHovered2 ? 'text-[#C86C00] transition-colors duration-200' : ''}`}>Transferred<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
                             <div className="h-1/2 flex items-center text-white ml-2  justify-between">WBTC To 0x6584...BD68
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered2 ? 'animate-bounce' : ''}>
                                     <Image
@@ -299,7 +299,7 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col w-[100%]">
-                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered3 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Bridged<span className="text-[12px] font-semibold text-base  text-white">03/19/23</span></div>
+                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered3 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Bridged<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
                             <div className="h-1/2 flex items-center text-white ml-2  justify-between">ethereum to Polygon
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered3 ? 'animate-bounce' : ''}>
                                     <Image
@@ -334,7 +334,7 @@ const Activity = () => {
                         </div>
 
                         <div className="w-7/8 flex flex-col w-[100%]">
-                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered4 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Swapped<span className="text-[12px] text-base font-semibold  text-white">03/19/23</span></div>
+                            <div className={`h-1/2 flex font-bold items-center  text-[#c86c00] ml-2 text-lg justify-between ${isHovered4 ? 'text-[#c86c00] transition-colors duration-300' : 'text-white'}`}>Swapped<span className="text-[12px] font-semibold  text-white">03/19/23</span></div>
                             <div className="h-1/2 flex items-center text-white ml-2  justify-between">1ETH For 3,500 USDC
                                 <div style={{ width: "12px", height: "12px" }} className={isHovered4 ? 'animate-bounce' : ''}>
                                     <Image
