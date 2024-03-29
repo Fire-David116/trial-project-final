@@ -8,7 +8,7 @@ import SortingTable from "./SortingTable"
 import Activity from "./Activity";
 export default function Dashboard() {
   return (
-    <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 over h-full md:h-full bg-[#110A01] m-[8px] md:m-[32px] md:mt-[20px]">
+    <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 over h-full md:h-full bg-[#110A01] m-[8px] md:m-[32px] md:mt-[20px]">
       <div className="bg-[#110A01]">
         <div><Balance /></div>
       </div>
@@ -30,10 +30,10 @@ export default function Dashboard() {
         </div>
         <div className="h-[100%]"><ChartG /></div>
       </div>
-      <div className="sm:mt-[-20px] md:mt-[-30px]">
-        <div className="w-[8%]"></div>
-        <div className="w-[92%] ml-[30px] mt-[-30px]">
-          <a className="block col-span-2 sm:col-span-1 text-[24px] md:text-[32px] text-white font-bold ml-[-10px] sm:ml-[0px] md:ml-[0px]">
+      <div className="bg-[#110A01] sm:mt-[20px] md:mt-[-30px]">
+        <div className="w-[8%] bg-border-color"></div>
+        <div className="w-[92%] ml-[30px] md:mt-[-30px]">
+          <a className="block col-span-2 sm:col-span-1 font-bold text-[24px] md:text-[32px] text-white font-bold ml-[-10px] sm:ml-[-10px] md:ml-[0px]">
             Your holdings
           </a>
           <SortingTable /></div>

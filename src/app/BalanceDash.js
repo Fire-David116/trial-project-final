@@ -22,11 +22,11 @@ const Balance = () => {
             <div className="bg-[#110A01] flex">
                 <div className="h-full w-[5%] bg-[#110A01]">' '</div>
                 <div className="flex h-full w-[92%] bg-custom-color rounded-[32px]">
-                    <div>
+                    <div className="w-4/6 pr-4">
                         <a className="block font-bold text-[16px] md:text-[24px] text-white font-[HankenGroteskRegular] pt-4 md:pt-2 md:pt-6 pl-6 ">
                             My Balance
                         </a>
-                        <a className="block font-bold text-[48px] sm:text-[56px] md:text-[64px] text-white font-[HankenGroteskRegular] pt-2 md:pt-6 pl-6">
+                        <a className="block font-bold text-[40px] sm:text-[48px] md:text-[60px] text-white font-[HankenGroteskRegular] pt-2 md:pt-6 pl-6">
                             $25,350.52
                         </a>
                         <b className="block text-[11px] md:text-[16px] text-white font-[HankenGroteskRegular] w-[300px] md:w-[500px] pt-[8px] md:pt-[16px] pl-[24px]">
@@ -34,7 +34,7 @@ const Balance = () => {
                             <a href="flex your_other_link_url" className="text-[#C86C00] underline font-[HankenGroteskRegular]"
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
-                            >
+                                                >
                                 check latest listed coins
 
                                 <div
@@ -57,11 +57,11 @@ const Balance = () => {
                             </a>
                         </div>
                     </div>
-                    <div class="sm:ml-[80px] ml-[30px]">
+                    <div className="w-2/6">
                         <Image
                             src={bigCoinImg}
                             alt="Arrow"
-                            className="sm:w-[200px] md:w-[200px] sm:mt-[20px] md:mt-6"
+                            className="md:mt-6"
                             priority
                         />
                     </div>

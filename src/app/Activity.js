@@ -312,7 +312,7 @@ const Activity = () => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col items-center justify-center mt-[20px]">
+                    <div className="flex flex-col items-center justify-center md:mt-[20px]">
                         <TablePagination
                             className="bg-[#110A01] text-[#C86C00]"
                             rowsPerPageOptions={[]} // Hide rows per page options

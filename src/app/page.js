@@ -10,7 +10,9 @@ export default function Home() {
       <div className="flex-1 bg-[#110A01]">
         <Dashboard />
       </div>
-      <Footer />
+      <div className="mt-[30px] md:mt-[0px]">
+        <Footer />
+      </div>
     </div>
   );
 }
