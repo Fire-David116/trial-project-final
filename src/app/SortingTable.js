@@ -243,8 +243,8 @@ export default function EnhancedTable() {
     return (
         <Box sx={{ width: '106%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <TableContainer className="flex flex-col items-center justify-center bg-[#110A01] border-none">
-                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'} className='border-none'>
+                <TableContainer className="flex flex-col items-center justify-center bg-[#110A01]">
+                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
                         <EnhancedTableHead
                             numSelected={selected.length}
                             order={order}
@@ -253,7 +253,7 @@ export default function EnhancedTable() {
                             onRequestSort={handleRequestSort}
                             rowCount={rows.length}
                         />
-                        <TableBody className="bg-black">
+                        <TableBody className="bg-[#110A01]">
                             {visibleRows.map((row, index) => {
                                 const isItemSelected = isSelected(row.id);
                                 const labelId = `enhanced-table-checkbox-${index}`;
@@ -271,7 +271,7 @@ export default function EnhancedTable() {
                                         style={{
                                             backgroundColor: rowHovered ? '#c86c00' : 'inherit',
                                             height: '15px',
-                                            transition: 'background-color 3s ease-in-out', // Adding transition for background-color
+                                            transition: 'background-color 0.1s ease-in-out', // Adding transition for background-color
                                         }}
                                         className="border-none hover:bg-[#c86c00] transition-colors duration-200"
                                     >
