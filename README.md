@@ -6,7 +6,7 @@
 <h3>Responsive UI:</h3>
 ![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap1.jpg)
 ![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap2.jpg)
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap3.jpg)
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap3.jpg)<br />
 ## 🔑Key Features
 
 - ✨ Simple and Minimal
