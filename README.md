@@ -1,12 +1,12 @@
 <h1 align=center>Nextjs+React+Tailwindcss Zwappi UI(Responsive design)</h1> 
 <p align=center>Zwappi is a web Frontend UI template built in Nextjs. Perfect for Full Responsive design.</p>
-<h2 align="center"> <a target="_blank" href="https://bigspring-light-nextjs.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://trial-project-final.vercel.app/">Responsive (100%)🚀</a>
+<h2 align="center"> <a target="_blank" href="https://bigspring-light-nextjs.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://davide-trial-project.vercel.app//">Responsive (100%)🚀</a>
 </h2>
 
 <h3>Responsive UI:</h3>
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap1.jpg)
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap2.jpg)
-![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap3.jpg)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap1.jpg?raw=true)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap2.jpg?raw=true)<br />
+![bigspring-light](https://github.com/Fire-David116/trial-project-final/blob/fireshark/src/app/style/lap3.jpg?raw=true)<br />
 ## 🔑Key Features
 
 - ✨ Simple and Minimal
