@@ -243,8 +243,8 @@ export default function EnhancedTable() {
     return (
         <Box sx={{ width: '106%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <TableContainer className="flex flex-col items-center justify-center bg-[#110A01]">
-                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
+                <TableContainer className="flex flex-col items-center justify-center bg-[#110A01] border-none">
+                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'} className='border-none'>
                         <EnhancedTableHead
                             numSelected={selected.length}
                             order={order}
@@ -270,11 +270,10 @@ export default function EnhancedTable() {
                                         onMouseLeave={handleRowLeave}
                                         style={{
                                             backgroundColor: rowHovered ? '#c86c00' : 'inherit',
-                                            height: '20px',
-                                            marginTop: "20px",
+                                            height: '15px',
                                             transition: 'background-color 3s ease-in-out', // Adding transition for background-color
                                         }}
-                                        className="border-none transition-colors duration-200"
+                                        className="border-none hover:bg-[#c86c00] transition-colors duration-200"
                                     >
 
                                         <TableCell
@@ -286,7 +285,7 @@ export default function EnhancedTable() {
                                         >
                                             <div
                                                 style={{ width: "30px", height: "30px" }}
-                                                className="w-16 sm:w-16 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2"
+                                                className="w-16 sm:w-16 md:w-16 overflow-hidden  mr-2 xs:mr-4 inline-block align-middle ml-2"
                                             >
                                                 <img
                                                     src={row.avatar}

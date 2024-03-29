@@ -38,7 +38,7 @@ const Nav = () => {
                             alt='logo'
                             width={152}
                             height={42}
-                            className='cursor-pointer md:ml-[80px]'
+                            className='cursor-pointer ml-[3px] md:ml-[80px]'
                         />
                     </Link>
                 </p>

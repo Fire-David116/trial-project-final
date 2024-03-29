@@ -52,7 +52,7 @@ const Balance = () => {
                             </a>
                         </b>
                         <div className="items-center pl-6 pt-2">
-                            <a className="block text-[6px] md:text-[12px] text-white font-[HankenGroteskRegular] opacity-50">
+                            <a className="block text-[9px] md:text-[12px] text-white font-[HankenGroteskRegular] opacity-50">
                                 *All values represented in USD
                             </a>
                         </div>
