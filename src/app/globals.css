@@ -15,7 +15,10 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+@font-face {
+  font-family: "HankenGroteskRegular";
+  src: local(HankenGroteskRegular), url(./style/font/HankenGrotesk-Regular.woff) format("woff");
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
