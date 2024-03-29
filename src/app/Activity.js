@@ -10,6 +10,7 @@ import arrowoutward from "./style/svgs/arrow.svg";
 import TablePagination from '@mui/material/TablePagination';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { IconButton, Typography } from '@mui/material';
 
 function stableSort(array, comparator) {
     const stabilizedThis = array.map((el, index) => [el, index]);
@@ -130,17 +131,53 @@ const Activity = () => {
     const handleMouseLeaveD = () => {
         setIsHoveredD(false);
     };
+    const TablePaginationActions = ({
+        count,
+        page,
+        rowsPerPage,
+        onPageChange,
+    }) => {
+        const handleBackButtonClick = (event) => {
+            onPageChange(event, page - 1);
+        };
+    
+        const handleNextButtonClick = (event) => {
+            onPageChange(event, page + 1);
+        };
+    
+        return (
+            <div style={{ flexShrink: 0 }} className="flex">
+                <IconButton
+                    onClick={handleBackButtonClick}
+                    disabled={page === 0}
+                    aria-label="previous page"
+                    style={{ color: '#C86C00' }} 
+                >
+                    <KeyboardArrowLeftIcon />
+                </IconButton>
+                <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}</div>
+                <IconButton
+                    onClick={handleNextButtonClick}
+                    disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+                    aria-label="next page"
+                    style={{ color: '#C86C00' }} 
+                >
+                    <KeyboardArrowRightIcon />
+                </IconButton>
+            </div>
+        );
+    };
     return (
         <activity>
             <div className="w-auto mb-[20px]">
                 <div
-                    className={`w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 ${isHovered ? 'bg-[#190f01]' : ''}`}
+                    className={` w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 ${isHovered ? 'bg-[#190f01]' : ''}`}
                     onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseLeave={handleMouseLeave} 
                 >
                     <div className="flex h-[70px]">
                         <div className="w-1/8 flex-none">
-                            <div className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray mr-2 xs:mr-4 inline-block align-middle ml-2 mt-2">
+                            <div className="w-20 md:w-24 md:w-16 overflow-hidden border-solid border-dark dark:border-gray xs:mr-4 inline-block align-middle ml-2 mt-2">
                                 <Image
                                     src={coinact}
                                     alt="Arrow"
@@ -171,7 +208,7 @@ const Activity = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01]"
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]"
                                     onMouseEnter={handleMouseEnterA}
                                     onMouseLeave={handleMouseLeaveA}
                                     >
@@ -207,7 +244,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[colo]"
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5  hover:bg-[#190f01] hover:text-[color] w-[108%]"
                                                     onMouseEnter={handleMouseEnterB}
                                                     onMouseLeave={handleMouseLeaveB}
                                                     >
@@ -243,7 +280,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] "
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%] "
                                                                     onMouseEnter={handleMouseEnterC}
                                                                     onMouseLeave={handleMouseLeaveC}>
                     <div className="flex h-[70px]">
@@ -278,7 +315,7 @@ const Activity = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01]"
+                <div className="w-[108%] h-[70px] flex-none rounded-lg flex-shrink-0 mr-5 hover:bg-[#190f01] w-[108%]"
                                                                     onMouseEnter={handleMouseEnterD}
                                                                     onMouseLeave={handleMouseLeaveD}>
                     <div className="flex h-[70px]">
@@ -313,19 +350,18 @@ const Activity = () => {
 
                     </div>
                     <div className="flex flex-col items-center justify-center md:mt-[0px]">
-                        <TablePagination
-                            className="bg-[#110A01] text-[#C86C00]"
-                            rowsPerPageOptions={[]} // Hide rows per page options
-                            component="div"
-                            count={rows.length * 5}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
-                            rowsPerPage={rowsPerPage} // Current rows per page
-                            onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
-                            nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
-                            backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
-                        />
+                    <TablePagination
+                        className="bg-[#110A01] text-[#C86C00]"
+                        rowsPerPageOptions={[]} // Hide rows per page options
+                        component="div"
+                        count={rows.length}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        rowsPerPage={rowsPerPage} // Current rows per page
+                        onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
+                        ActionsComponent={TablePaginationActions} // Use the custom actions component
+                        labelDisplayedRows={() => ''}
+                    />
                     </div>
                 </div>
             </div>

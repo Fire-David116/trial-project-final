@@ -21,8 +21,8 @@ const Balance = () => {
         <div>
             <div className="bg-[#110A01] flex">
                 <div className="h-full w-[1%] bg-[#110A01]">' '</div>
-                <div className="flex h-full w-[99%] md:w-[92%] bg-custom-color rounded-[32px]">
-                    <div className="w-4/6 pr-4">
+                <div className="flex h-full w-[100%] md:w-[96%] bg-custom-color rounded-[32px]">
+                    <div className="w-4/6">
                         <a className="block font-bold text-[16px] md:text-[24px] text-white font-[HankenGroteskRegular] pt-4 md:pt-2 md:pt-6 pl-6 ">
                             My Balance
                         </a>
@@ -61,16 +61,16 @@ const Balance = () => {
                         <Image
                             src={bigCoinImg}
                             alt="Arrow"
-                            className="md:mt-6"
+                            className="md:mt-6 w-[200px]"
                             priority
                         />
                     </div>
                 </div>
             </div>
-            <a className="inline-block md:text-2xl text-white mt-[18px] md:mt-[18px] mb-3 ml-[8px] sm:ml-[34px] md:ml-[44px]">
+            <a className="inline-block md:text-2xl text-white mt-[32px] mb-[16px]">
                 Your top movers
             </a>
-            <div className="h-[40%] flex overflow-x-hidden md:w-[92%]">
+            <div className="h-[40%] flex overflow-x-hidden mr-[24px]">
                 <div className="w-[210px] h-[70px] flex-none bg-[#190F01] rounded-lg flex-shrink-0 mr-5 flex animate-slide">
                     <div className="w-1/3 flex-none">
                         <div

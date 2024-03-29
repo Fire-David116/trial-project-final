@@ -11,14 +11,14 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { useMediaQuery } from '@mui/material';
-
+import { IconButton, Typography } from '@mui/material';
 import TablePagination from '@mui/material/TablePagination';
 import sort from './style/svgs/sort.svg'
 import Image from "next/image";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import data from './Data.json';
-var cnt = 0;
+
 function createData(id, name, calories, fat, carbs, avatar) {
     return {
         id,
@@ -95,41 +95,41 @@ function EnhancedTableHead(props) {
     };
 
     return (
-<TableHead>
-  <TableRow className="bg-[#190F01] h-8">
-    {headCells.map((headCell) => (
-      (isMobile && (headCell.id === 'fat' || headCell.id === 'carbs')) ? null : (
-        <TableCell
-          key={headCell.id}
-          padding={headCell.disablePadding ? 'none' : 'normal'}
-          sortDirection={orderBy === headCell.id ? order : false}
-          className="border-none py-2 text-center" // Add the hover class here
-        >
-          <TableSortLabel
-            direction={orderBy === headCell.id ? order : 'asc'}
-            onClick={createSortHandler(headCell.id)}
-            style={{ color: 'white' }}
-            hideSortIcon={true}
-          >
-            <span className="hover:text-[#c86c00] transition-colors duration-200">{headCell.label}</span>
-            <span className="ml-1"> {/* Add appropriate margin for spacing */}
-              {/* Render your sort icon here */}
-              <div style={{ width: "10px", height: "8px" }} className="mb-2">
-                <Image
-                  src={sort}
-                  alt="Sort Icon"
-                  className="w-4 h-4 hover:"
-                  sizes="20vw"
-                  priority
-                />
-              </div>
-            </span>
-          </TableSortLabel>
-        </TableCell>
-      )
-    ))}
-  </TableRow>
-</TableHead>
+        <TableHead>
+            <TableRow className="bg-[#190F01] h-8">
+                {headCells.map((headCell) => (
+                    (isMobile && (headCell.id === 'fat' || headCell.id === 'carbs')) ? null : (
+                        <TableCell
+                            key={headCell.id}
+                            padding={headCell.disablePadding ? 'none' : 'normal'}
+                            sortDirection={orderBy === headCell.id ? order : false}
+                            className="border-none py-2 text-center" // Add the hover class here
+                        >
+                            <TableSortLabel
+                                direction={orderBy === headCell.id ? order : 'asc'}
+                                onClick={createSortHandler(headCell.id)}
+                                style={{ color: 'white' }}
+                                hideSortIcon={true}
+                            >
+                                <span className="hover:text-[#c86c00] transition-colors duration-200">{headCell.label}</span>
+                                <span className="ml-1"> {/* Add appropriate margin for spacing */}
+                                    {/* Render your sort icon here */}
+                                    <div style={{ width: "10px", height: "8px" }} className="mb-2">
+                                        <Image
+                                            src={sort}
+                                            alt="Sort Icon"
+                                            className="w-4 h-4 hover:"
+                                            sizes="20vw"
+                                            priority
+                                        />
+                                    </div>
+                                </span>
+                            </TableSortLabel>
+                        </TableCell>
+                    )
+                ))}
+            </TableRow>
+        </TableHead>
     );
 }
 
@@ -141,7 +141,42 @@ EnhancedTableHead.propTypes = {
     orderBy: PropTypes.string.isRequired,
     rowCount: PropTypes.number.isRequired,
 };
+const TablePaginationActions = ({
+    count,
+    page,
+    rowsPerPage,
+    onPageChange,
+}) => {
+    const handleBackButtonClick = (event) => {
+        onPageChange(event, page - 1);
+    };
 
+    const handleNextButtonClick = (event) => {
+        onPageChange(event, page + 1);
+    };
+
+    return (
+        <div style={{ flexShrink: 0 }} className="flex">
+            <IconButton
+                onClick={handleBackButtonClick}
+                disabled={page === 0}
+                aria-label="previous page"
+                style={{ color: '#C86C00' }} 
+            >
+                <KeyboardArrowLeftIcon />
+            </IconButton>
+            <div className='mt-[10px]'>{`Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`}</div>
+            <IconButton
+                onClick={handleNextButtonClick}
+                disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+                aria-label="next page"
+                style={{ color: '#C86C00' }} 
+            >
+                <KeyboardArrowRightIcon />
+            </IconButton>
+        </div>
+    );
+};
 
 
 export default function EnhancedTable() {
@@ -206,7 +241,7 @@ export default function EnhancedTable() {
         setHoveredRow(null);
     };
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '106%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer className="flex flex-col items-center justify-center bg-[#110A01]">
                     <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
@@ -225,21 +260,22 @@ export default function EnhancedTable() {
                                 const rowHovered = hoveredRow === index;
 
                                 return (
-                                        <TableRow
-                                            hover
-                                            role="checkbox"
-                                            aria-checked={isItemSelected}
-                                            tabIndex={-1}
-                                            key={row.id}
-                                            onMouseEnter={() => handleRowHover(index)}
-                                            onMouseLeave={handleRowLeave}
-                                            style={{
-                                                backgroundColor: rowHovered ? '#c86c00' : 'inherit',
-                                                height: '15px',
-                                                transition: 'background-color 3s ease-in-out', // Adding transition for background-color
-                                            }}
-                                            className="border-none transition-colors duration-200"
-                                        >
+                                    <TableRow
+                                        hover
+                                        role="checkbox"
+                                        aria-checked={isItemSelected}
+                                        tabIndex={-1}
+                                        key={row.id}
+                                        onMouseEnter={() => handleRowHover(index)}
+                                        onMouseLeave={handleRowLeave}
+                                        style={{
+                                            backgroundColor: rowHovered ? '#c86c00' : 'inherit',
+                                            height: '20px',
+                                            marginTop: "20px",
+                                            transition: 'background-color 3s ease-in-out', // Adding transition for background-color
+                                        }}
+                                        className="border-none transition-colors duration-200"
+                                    >
 
                                         <TableCell
                                             component="th"
@@ -260,7 +296,7 @@ export default function EnhancedTable() {
                                             </div>
                                             <span className="lg:inline hover:text-white transition-colors duration-300" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }}>{row.name}</span> {/* Show name only on larger screens */}
                                         </TableCell>
-                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
+                                        <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-right lg:text-center sm:text-center md:text-center hover:text-[#c86c00] transition-colors duration-200">{row.calories}</TableCell> {/* Display calories only on larger screens */}
                                         <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.fat}</TableCell>
                                         <TableCell align="right" style={{ color: rowHovered ? '#c86c00' : 'white', padding: '3px', fontSize: '15px' }} className="bg-[#110A01] border-none text-center hidden table-cell sm:table-cell md:table-cell hover:text-[#c86c00] transition-colors duration-200">{row.carbs}</TableCell>
                                     </TableRow>
@@ -268,7 +304,6 @@ export default function EnhancedTable() {
                             })}
                         </TableBody>
                     </Table>
-
                     <TablePagination
                         className="bg-[#110A01] text-[#C86C00]"
                         rowsPerPageOptions={[]} // Hide rows per page options
@@ -276,17 +311,10 @@ export default function EnhancedTable() {
                         count={rows.length}
                         page={page}
                         onPageChange={handleChangePage}
-                        labelDisplayedRows={({ from, to, count }) => `Page ${page + 1} of ${Math.ceil(count / rowsPerPage)}`} // Displayed rows label
                         rowsPerPage={rowsPerPage} // Current rows per page
                         onChangeRowsPerPage={handleChangeRowsPerPage} // Function to handle rows per page change
-                        nextIconButtonProps={{
-                            disabled: page === Math.ceil(rows.length / rowsPerPage) - 1, // Disable next button when on the last page
-                        }}
-                        nextIconButton={<KeyboardArrowRightIcon />} // Next button icon
-                        backIconButtonProps={{
-                            disabled: page === 0, // Disable back button when on the first page
-                        }}
-                        backIconButton={<KeyboardArrowLeftIcon />} // Back button icon
+                        ActionsComponent={TablePaginationActions} // Use the custom actions component
+                        labelDisplayedRows={() => ''}
                     />
                 </TableContainer>
             </Paper>

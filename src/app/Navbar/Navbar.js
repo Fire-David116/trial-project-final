@@ -29,8 +29,8 @@ const Nav = () => {
         };
     }, []);
     return (
-        <nav class="bg-custom-color border-gray-200 py-2.5 dark:bg-gray-900 z-50 rounded-lg">
-            <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+        <nav class={`bg-custom-color border-gray-200 py-2.5 dark:bg-gray-900 z-50 rounded-lg ${isMobile ? "fixed top-0 left-0 right-0" : " "}`}>
+            <div class="flex flex-wrap items-center justify-between px-4 mx-auto">
                 <p href="#" class="flex items-left">
                     <Link href="/">
                         <Image
@@ -38,7 +38,7 @@ const Nav = () => {
                             alt='logo'
                             width={152}
                             height={42}
-                            className='cursor-pointer'
+                            className='cursor-pointer md:ml-[80px]'
                         />
                     </Link>
                 </p>

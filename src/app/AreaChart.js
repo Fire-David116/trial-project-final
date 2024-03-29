@@ -3,6 +3,11 @@ import React, { PureComponent } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 const data = [
     {
+        name: ' ',
+        uv: 100,
+        pv: 100,
+    },
+    {
         name: 'JAN',
         uv: 200,
         pv: 100,
@@ -23,7 +28,7 @@ const data = [
         name: 'APR',
         uv: 300,
         pv: 3908,
-        amt: 2000,
+        amt: 2000,  
     },
     {
         name: 'MAY',
@@ -110,8 +115,7 @@ export default class ChartG extends PureComponent {
                     data={data}
                     margin={{
                         top: 10,
-                        right: 30,
-                        left: 0,
+                        left: -15,
                         bottom: 40,
                     }}
                 >
