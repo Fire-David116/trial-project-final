@@ -13,11 +13,11 @@ import Paper from '@mui/material/Paper';
 import { useMediaQuery } from '@mui/material';
 import { IconButton, Typography } from '@mui/material';
 import TablePagination from '@mui/material/TablePagination';
-import sort from './style/svgs/sort.svg'
+import sort from '../app/assests/style/svgs/sort.svg'
 import Image from "next/image";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import data from './Data.json';
+import data from "../app/data/data.json"
 
 function createData(id, name, calories, fat, carbs, avatar) {
     return {

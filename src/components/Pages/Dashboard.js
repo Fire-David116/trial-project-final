@@ -1,11 +1,11 @@
 // Dashboard.js
 "use client"
-import Balance from "./BalanceDash";
-import ChartG from "./AreaChart";
-import trendingicon from "./style/svgs/tredingicon.svg"
+import Balance from "../BalanceDash";
+import ChartG from "../AreaChart";
+import trendingicon from "../../app/assests/style/svgs/tredingicon.svg"
 import Image from "next/image";
-import SortingTable from "./SortingTable"
-import Activity from "./Activity";
+import SortingTable from "../SortingTable"
+import Activity from "../Activity";
 export default function Dashboard() {
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 over h-full md:h-full bg-[#110A01] m-[8px] md:m-[80px] md:mt-[32px] md:mb-[8px]">

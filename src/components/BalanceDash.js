@@ -1,13 +1,13 @@
 "use client"
-import arrowImage from "./style/svgs/arrow.svg";
+import arrowImage from "../app/assests/style/svgs/arrow.svg";
 import Image from "next/image";
-import bigCoinImg from "./style/svgs/bigcoinImage.svg"
-import eth from "./style/svgs/eth.svg";
-import wbtc from "./style/svgs/wbtc.svg";
-import pepe from "./style/svgs/pepe.svg";
-import mkr from "./style/svgs/mkr.svg";
-import frax from "./style/svgs/frax.svg"
-import trendingicon from "./style/svgs/tredingicon.svg"
+import bigCoinImg from "../app/assests/style/svgs/bigcoinImage.svg"
+import eth from "../app/assests/style/svgs/eth.svg";
+import wbtc from "../app/assests/style/svgs/wbtc.svg";
+import pepe from "../app/assests/style/svgs/pepe.svg";
+import mkr from "../app/assests/style/svgs/mkr.svg";
+import frax from "../app/assests/style/svgs/frax.svg"
+import trendingicon from "../app/assests/style/svgs/tredingicon.svg"
 import { useState } from "react";
 const Balance = () => {
     const [isHovered, setIsHovered] = useState(false);

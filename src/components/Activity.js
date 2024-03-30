@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import Image from "next/image";
-import coinact from "./style/svgs/coin-activity.svg";
-import bcoinact from "./style/svgs/bcoin-activity.svg";
-import ucoinact from "./style/svgs//ucoin-activity.svg";
-import ecoinact from "./style/svgs//ecoin-activity.svg";
-import mcoinact from "./style/mcoin-activity.png";
-import arrowoutward from "./style/svgs/arrow.svg";
+import coinact from "../app/assests/style/svgs/coin-activity.svg";
+import bcoinact from "../app/assests/style/svgs/bcoin-activity.svg";
+import ucoinact from "../app/assests/style/svgs/ucoin-activity.svg";
+import ecoinact from "../app/assests/style/svgs/ecoin-activity.svg";
+import mcoinact from "../app/assests/style/mcoin-activity.png";
+import arrowoutward from "../app/assests/style/svgs//arrow.svg";
 import TablePagination from '@mui/material/TablePagination';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';

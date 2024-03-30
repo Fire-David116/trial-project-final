@@ -17,7 +17,7 @@
 }
 @font-face {
   font-family: "HankenGroteskRegular";
-  src: local(HankenGroteskRegular), url(./style/font/HankenGrotesk-Regular.woff) format("woff");
+  src: local(HankenGroteskRegular), url(./assests//font/HankenGrotesk-Regular.woff) format("woff");
 }
 body {
   color: rgb(var(--foreground-rgb));
